@@ -21,7 +21,7 @@ export default class App extends Component {
   
 
   render() {
-    
+    const students = Data.filter((user) => user.type === "Student");
     const Item = ({course, id, name}) => (
       
       <Rows data={[[id, `${name.fname} ${name.lname}`, course]]}  borderStyle={{borderWidth: 1, borderColor: '#FF8F8F' }} style={{borderBottomWidth: 1, borderColor: '#FF8F8F', borderRightWidth: 1, borderWidth: 1}} textStyle={styles.text}/>
@@ -67,7 +67,7 @@ export default class App extends Component {
               <Row data={state.tableHead3}  style={styles.head} textStyle={{margin: 6, color: 'white'}}/>
               
               <FlatList
-              data={Data}
+              data={students}
               renderItem={({item}) => <Item course={item.course } id={item.id } name={item.name} />}
               
               keyExtractor={item => item.id}
